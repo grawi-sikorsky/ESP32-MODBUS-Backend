@@ -19,4 +19,8 @@ public class DataService {
     public List<DataModel> getData(){
         return dataRepository.findByModbusID("modbus1");
     }
+
+    public DataModel saveData(){
+        
+    }
 }

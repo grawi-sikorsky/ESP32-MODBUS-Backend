@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class DataModel {
+public class DataModel1 {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class DataModel {
 
     String solarVoltage;
 
-    public DataModel() {
+    public DataModel1() {
     }
 
     public Long getId() {

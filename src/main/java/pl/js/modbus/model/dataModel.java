@@ -6,17 +6,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class dataModel {
+public class DataModel {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
+    String modbusID;
+
     String batteryVoltage;
 
     String solarVoltage;
 
-    public dataModel() {
+    public DataModel() {
     }
 
     public Long getId() {
@@ -25,6 +27,14 @@ public class dataModel {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getModbusID() {
+        return modbusID;
+    }
+
+    public void setModbusID(String modbusID) {
+        this.modbusID = modbusID;
     }
 
     public String getBatteryVoltage() {
@@ -42,6 +52,5 @@ public class dataModel {
     public void setSolarVoltage(String solarVoltage) {
         this.solarVoltage = solarVoltage;
     }
-
     
 }

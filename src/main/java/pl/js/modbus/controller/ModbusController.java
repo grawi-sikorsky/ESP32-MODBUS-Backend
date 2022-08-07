@@ -6,25 +6,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import pl.js.modbus.model.DataModel1;
+import pl.js.modbus.model.DataModel;
 import pl.js.modbus.service.DataService;
 
 @RestController
-public class ModbusController1 {
+public class ModbusController {
 
     private final DataService dataService;
 
-    public ModbusController1(DataService dataService) {
+    public ModbusController(DataService dataService) {
         this.dataService = dataService;
     }
 
     @GetMapping("/data")
-    public List<DataModel1> showData(){
+    public List<DataModel> showData(){
         return dataService.getData();
     }
 
     @PostMapping("/data")
-    public DataModel1 receiveData(@RequestBody DataModel1 incomingDataModel){
+    public DataModel receiveData(@RequestBody DataModel incomingDataModel){
 
         return dataService.saveData(incomingDataModel);
     }

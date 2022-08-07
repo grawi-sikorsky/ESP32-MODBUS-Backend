@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import pl.js.modbus.model.DataModel1;
+import pl.js.modbus.model.DataModel;
 
 @Repository
-public interface DataRepository1 extends CrudRepository<DataModel1, Long> {
+public interface DataRepository extends CrudRepository<DataModel, Long> {
     
-    List<DataModel1> findByModbusID(String modbusID);
+    List<DataModel> findByModbusID(String modbusID);
     
 }

@@ -20,7 +20,7 @@ public class DataService {
         return dataRepository.findByModbusID("modbus1");
     }
 
-    public DataModel saveData(){
-        
+    public DataModel saveData(DataModel dataModel){
+        return dataRepository.save(dataModel);
     }
 }

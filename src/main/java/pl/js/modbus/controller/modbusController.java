@@ -3,6 +3,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import pl.js.modbus.model.DataModel;
@@ -23,9 +24,9 @@ public class ModbusController {
     }
 
     @PostMapping("/data")
-    public String receiveData(){
+    public DataModel receiveData(@RequestBody DataModel incomingDataModel){
 
-        return "sending data...";
+        return dataService.saveData(incomingDataModel);
     }
     
 }

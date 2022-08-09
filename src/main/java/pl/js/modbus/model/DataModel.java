@@ -14,10 +14,11 @@ public class DataModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    String modbusID;
 
     LocalDateTime recordTime;
 
+    String modbusID;
+    
     String pvVoltage;
     String pvCurrent;
     String pvPower;
@@ -227,7 +228,12 @@ public class DataModel {
         this.espPressure = espPressure;
     }
 
-    
+    public LocalDateTime getRecordTime() {
+        return recordTime;
+    }
 
+    public void setRecordTime(LocalDateTime recordTime) {
+        this.recordTime = recordTime;
+    }
     
 }

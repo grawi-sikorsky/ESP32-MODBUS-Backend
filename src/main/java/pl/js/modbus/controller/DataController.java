@@ -14,11 +14,11 @@ import pl.js.modbus.service.DataService;
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping("/data")
-public class ModbusController {
+public class DataController {
 
     private final DataService dataService;
 
-    public ModbusController(DataService dataService) {
+    public DataController(DataService dataService) {
         this.dataService = dataService;
     }
 
@@ -29,7 +29,6 @@ public class ModbusController {
 
     @PostMapping
     public DataModel receiveData(@RequestBody DataModel incomingDataModel){
-
         return dataService.saveData(incomingDataModel);
     }
     

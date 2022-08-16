@@ -2,6 +2,7 @@ package pl.js.modbus.model;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +18,7 @@ public class DataModel {
 
     LocalDateTime recordTime;
 
+    @Column(name = "modbus_id")
     String modbusID;
     
     String pvVoltage;
@@ -43,7 +45,7 @@ public class DataModel {
 
     String batteryVoltage;
     String solarVoltage;
-
+    
     @PrePersist
     public void prepersist(){
         recordTime = LocalDateTime.now();

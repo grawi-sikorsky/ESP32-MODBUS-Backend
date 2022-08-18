@@ -21,7 +21,7 @@ public class ModbusApplication {
 	@Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedOrigins(Arrays.asList("*", "https://modbuspanel.herokuapp.com"));
         configuration.setAllowedMethods(
             Arrays.asList("GET","POST","HEAD","DELETE","PUT","OPTIONS"));
         configuration.setMaxAge(1l);

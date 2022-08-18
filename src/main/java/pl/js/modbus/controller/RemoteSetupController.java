@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.js.modbus.model.SetupModel;
 import pl.js.modbus.service.RemoteSetupService;
 
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"http://localhost:4200", "https://modbuspanel.herokuapp.com:8080"})
 @RestController
 @RequestMapping("/setup")
 public class RemoteSetupController {

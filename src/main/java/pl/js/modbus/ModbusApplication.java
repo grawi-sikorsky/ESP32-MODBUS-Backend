@@ -26,7 +26,7 @@ public class ModbusApplication {
             Arrays.asList("GET","POST","HEAD","DELETE","PUT","OPTIONS"));
         configuration.setMaxAge(1l);
         configuration.setAllowCredentials(true);
-        configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setAllowedHeaders(Arrays.asList("*", "https://modbuspanel.herokuapp.com"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;

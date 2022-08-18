@@ -12,7 +12,6 @@ import pl.js.modbus.model.SetupModel;
 import pl.js.modbus.service.RemoteSetupService;
 
 @CrossOrigin(origins = {"*", "http://localhost:4200", "https://modbuspanel.herokuapp.com:8080", "http://10.0.2.2:8080"}, exposedHeaders="Access-Control-Allow-Origin")
-
 @RestController
 @RequestMapping("/setup")
 public class RemoteSetupController {

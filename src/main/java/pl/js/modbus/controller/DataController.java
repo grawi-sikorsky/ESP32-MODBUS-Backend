@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import pl.js.modbus.model.DataModel;
 import pl.js.modbus.service.DataService;
-
-@CrossOrigin(origins = {"http://localhost:4200","https://modbuspanel.herokuapp.com:8080", "http://10.0.2.2:8080"})
+@CrossOrigin(origins = {"*", "http://localhost:4200", "https://modbuspanel.herokuapp.com:8080", "http://10.0.2.2:8080"}, exposedHeaders="Access-Control-Allow-Origin")
 @RestController
 @RequestMapping("/data")
 public class DataController {

@@ -20,31 +20,36 @@ public class DataModel {
 
     @Column(name = "modbus_id")
     String modbusID;
-    
     String pvVoltage;
     String pvCurrent;
     String pvPower;
-    String pvTotalChargingToday;
-    String pvTotalCharging;
+    String pvStatus;
 
     String batVoltage;
-    String batCurrent;
-    String mpptTemperature;
+    String batDischargeCurrent;
+    String batChargingCurrent;
+    String batChargingPower;
+    String batRemainingPercent;
+    String batTemperature;
+    String batOverallCurrent;
     String batStatus;
     String batChargingStatus;
     String batDischargingStatus;
 
+    String mpptTemperature;
     String loadVoltage;
     String loadCurrent;
     String loadPower;
-    String energyConsumedToday;
-    String energyConsumedTotal;
-
-    String espTemperature;
-    String espPressure;
-
-    String batteryVoltage;
-    String solarVoltage;
+    String loadStatus;
+    
+    String genTotalToday;
+    String genTotalMonth;
+    String genTotalYear;
+    String genTotalAll;
+    String consTotalToday;
+    String consTotalMonth;
+    String consTotalYear;
+    String consTotalAll;
     
     @PrePersist
     public void prepersist(){
@@ -94,20 +99,12 @@ public class DataModel {
         this.pvPower = pvPower;
     }
 
-    public String getPvTotalChargingToday() {
-        return pvTotalChargingToday;
+    public String getPvStatus() {
+        return pvStatus;
     }
 
-    public void setPvTotalChargingToday(String pvTotalChargingToday) {
-        this.pvTotalChargingToday = pvTotalChargingToday;
-    }
-
-    public String getPvTotalCharging() {
-        return pvTotalCharging;
-    }
-
-    public void setPvTotalCharging(String pvTotalCharging) {
-        this.pvTotalCharging = pvTotalCharging;
+    public void setPvStatus(String pvStatus) {
+        this.pvStatus = pvStatus;
     }
 
     public String getBatVoltage() {
@@ -118,20 +115,52 @@ public class DataModel {
         this.batVoltage = batVoltage;
     }
 
-    public String getBatCurrent() {
-        return batCurrent;
+    public String getBatDischargeCurrent() {
+        return batDischargeCurrent;
     }
 
-    public void setBatCurrent(String batCurrent) {
-        this.batCurrent = batCurrent;
+    public void setBatDischargeCurrent(String batDischargeCurrent) {
+        this.batDischargeCurrent = batDischargeCurrent;
     }
 
-    public String getMpptTemperature() {
-        return mpptTemperature;
+    public String getBatChargingCurrent() {
+        return batChargingCurrent;
     }
 
-    public void setMpptTemperature(String mpptTemperature) {
-        this.mpptTemperature = mpptTemperature;
+    public void setBatChargingCurrent(String batChargingCurrent) {
+        this.batChargingCurrent = batChargingCurrent;
+    }
+
+    public String getBatChargingPower() {
+        return batChargingPower;
+    }
+
+    public void setBatChargingPower(String batChargingPower) {
+        this.batChargingPower = batChargingPower;
+    }
+
+    public String getBatRemainingPercent() {
+        return batRemainingPercent;
+    }
+
+    public void setBatRemainingPercent(String batRemainingPercent) {
+        this.batRemainingPercent = batRemainingPercent;
+    }
+
+    public String getBatTemperature() {
+        return batTemperature;
+    }
+
+    public void setBatTemperature(String batTemperature) {
+        this.batTemperature = batTemperature;
+    }
+
+    public String getBatOverallCurrent() {
+        return batOverallCurrent;
+    }
+
+    public void setBatOverallCurrent(String batOverallCurrent) {
+        this.batOverallCurrent = batOverallCurrent;
     }
 
     public String getBatStatus() {
@@ -158,6 +187,14 @@ public class DataModel {
         this.batDischargingStatus = batDischargingStatus;
     }
 
+    public String getMpptTemperature() {
+        return mpptTemperature;
+    }
+
+    public void setMpptTemperature(String mpptTemperature) {
+        this.mpptTemperature = mpptTemperature;
+    }
+
     public String getLoadVoltage() {
         return loadVoltage;
     }
@@ -182,52 +219,76 @@ public class DataModel {
         this.loadPower = loadPower;
     }
 
-    public String getEnergyConsumedToday() {
-        return energyConsumedToday;
+    public String getLoadStatus() {
+        return loadStatus;
     }
 
-    public void setEnergyConsumedToday(String energyConsumedToday) {
-        this.energyConsumedToday = energyConsumedToday;
+    public void setLoadStatus(String loadStatus) {
+        this.loadStatus = loadStatus;
     }
 
-    public String getEnergyConsumedTotal() {
-        return energyConsumedTotal;
+    public String getGenTotalToday() {
+        return genTotalToday;
     }
 
-    public void setEnergyConsumedTotal(String energyConsumedTotal) {
-        this.energyConsumedTotal = energyConsumedTotal;
+    public void setGenTotalToday(String genTotalToday) {
+        this.genTotalToday = genTotalToday;
     }
 
-    public String getBatteryVoltage() {
-        return batteryVoltage;
+    public String getGenTotalMonth() {
+        return genTotalMonth;
     }
 
-    public void setBatteryVoltage(String batteryVoltage) {
-        this.batteryVoltage = batteryVoltage;
+    public void setGenTotalMonth(String genTotalMonth) {
+        this.genTotalMonth = genTotalMonth;
     }
 
-    public String getSolarVoltage() {
-        return solarVoltage;
+    public String getGenTotalYear() {
+        return genTotalYear;
     }
 
-    public void setSolarVoltage(String solarVoltage) {
-        this.solarVoltage = solarVoltage;
+    public void setGenTotalYear(String genTotalYear) {
+        this.genTotalYear = genTotalYear;
     }
 
-    public String getEspTemperature() {
-        return espTemperature;
+    public String getGenTotalAll() {
+        return genTotalAll;
     }
 
-    public void setEspTemperature(String espTemperature) {
-        this.espTemperature = espTemperature;
+    public void setGenTotalAll(String genTotalAll) {
+        this.genTotalAll = genTotalAll;
     }
 
-    public String getEspPressure() {
-        return espPressure;
+    public String getConsTotalToday() {
+        return consTotalToday;
     }
 
-    public void setEspPressure(String espPressure) {
-        this.espPressure = espPressure;
+    public void setConsTotalToday(String consTotalToday) {
+        this.consTotalToday = consTotalToday;
+    }
+
+    public String getConsTotalMonth() {
+        return consTotalMonth;
+    }
+
+    public void setConsTotalMonth(String consTotalMonth) {
+        this.consTotalMonth = consTotalMonth;
+    }
+
+    public String getConsTotalYear() {
+        return consTotalYear;
+    }
+
+    public void setConsTotalYear(String consTotalYear) {
+        this.consTotalYear = consTotalYear;
+    }
+
+    public String getConsTotalAll() {
+        return consTotalAll;
+    }
+
+    public void setConsTotalAll(String consTotalAll) {
+        this.consTotalAll = consTotalAll;
     }
 
     public LocalDateTime getRecordTime() {

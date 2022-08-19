@@ -21,7 +21,7 @@ public class DataService {
     }
 
     public DataModel saveData(DataModel dataModel){
-        System.out.println(dataModel);
+        System.out.println(dataModel.getBatVoltage());
         return dataRepository.save(dataModel);
     }
 }

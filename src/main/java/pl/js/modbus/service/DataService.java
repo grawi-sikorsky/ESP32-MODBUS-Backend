@@ -21,6 +21,7 @@ public class DataService {
     }
 
     public DataModel saveData(DataModel dataModel){
+        System.out.println(dataModel);
         return dataRepository.save(dataModel);
     }
 }

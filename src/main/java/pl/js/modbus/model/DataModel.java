@@ -1,6 +1,7 @@
 package pl.js.modbus.model;
 
-import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +17,7 @@ public class DataModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    LocalDateTime recordTime;
+    ZonedDateTime recordTime;
 
     @Column(name = "modbus_id")
     private String modbusID;
@@ -53,7 +54,7 @@ public class DataModel {
     
     @PrePersist
     public void prepersist(){
-        recordTime = LocalDateTime.now();
+        recordTime = ZonedDateTime.now(ZoneId.of("Europe/Warsaw"));
     }
 
     public DataModel() {
@@ -291,11 +292,11 @@ public class DataModel {
         this.consTotalAll = consTotalAll;
     }
 
-    public LocalDateTime getRecordTime() {
+    public ZonedDateTime getRecordTime() {
         return recordTime;
     }
 
-    public void setRecordTime(LocalDateTime recordTime) {
+    public void setRecordTime(ZonedDateTime recordTime) {
         this.recordTime = recordTime;
     }
     

@@ -19,37 +19,37 @@ public class LiveDataModel {
     LocalDateTime recordTime;
 
     @Column(name = "modbus_id")
-    String modbusID;
-    String pvVoltage;
-    String pvCurrent;
-    String pvPower;
-    String pvStatus;
+    private String modbusID;
+    private String pvVoltage;
+    private String pvCurrent;
+    private String pvPower;
+    private String pvStatus;
 
-    String batVoltage;
-    String batDischargeCurrent;
-    String batChargingCurrent;
-    String batChargingPower;
-    String batRemainingPercent;
-    String batTemperature;
-    String batOverallCurrent;
-    String batStatus;
-    String batChargingStatus;
-    String batDischargingStatus;
+    private String batVoltage;
+    private String batDischargeCurrent;
+    private String batChargingCurrent;
+    private String batChargingPower;
+    private String batRemainingPercent;
+    private String batTemperature;
+    private String batOverallCurrent;
+    private String batStatus;
+    private String batChargingStatus;
+    private String batDischargingStatus;
 
-    String mpptTemperature;
-    String loadVoltage;
-    String loadCurrent;
-    String loadPower;
-    String loadStatus;
-    
-    String genTotalToday;
-    String genTotalMonth;
-    String genTotalYear;
-    String genTotalAll;
-    String consTotalToday;
-    String consTotalMonth;
-    String consTotalYear;
-    String consTotalAll;
+    private String mpptTemperature;
+    private String loadVoltage;
+    private String loadCurrent;
+    private String loadPower;
+    private String loadStatus;
+
+    private String genTotalToday;
+    private String genTotalMonth;
+    private String genTotalYear;
+    private String genTotalAll;
+    private String consTotalToday;
+    private String consTotalMonth;
+    private String consTotalYear;
+    private String consTotalAll;
     
     @PrePersist
     public void prepersist(){

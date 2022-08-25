@@ -1,6 +1,7 @@
 package pl.js.modbus.service;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -23,6 +24,10 @@ public class DataService {
     
     public List<DataModel> getData(){
         return dataRepository.findByModbusID("modbus1");
+    }
+
+    public List<DataModel> getDataInRange(OffsetDateTime start, OffsetDateTime end){
+        return dataRepository.findByRecordTimeBetween(start,  end);
     }
 
     public DataModel saveData(DataModel dataModel){

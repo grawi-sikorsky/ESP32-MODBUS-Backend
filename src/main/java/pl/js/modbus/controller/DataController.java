@@ -30,7 +30,7 @@ public class DataController {
     }
 
     @GetMapping("/range")
-    public List<DataModel> showDataRange(@RequestParam OffsetDateTime start, @RequestParam OffsetDateTime end){
+    public List<DataModel> showDataRange(@RequestParam String start, @RequestParam String end){
         return dataService.getDataInRange(start, end);
     }
 

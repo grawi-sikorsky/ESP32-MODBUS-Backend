@@ -1,7 +1,12 @@
 package pl.js.modbus.service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.stereotype.Service;
 
@@ -23,6 +28,16 @@ public class DataService {
     
     public List<DataModel> getData(){
         return dataRepository.findByModbusID("modbus1");
+    }
+
+    public List<DataModel> getDataInRange(String start, String end){
+        LocalDateTime startTime = ZonedDateTime.parse(start).toLocalDateTime();
+        LocalDateTime endTime = ZonedDateTime.parse(end).toLocalDateTime();
+        
+        ZonedDateTime s = startTime.atZone(ZoneId.of("Europe/Warsaw"));
+        ZonedDateTime e = endTime.atZone(ZoneId.of("Europe/Warsaw"));
+
+        return dataRepository.findByRecordTimeBetween(s,  e);
     }
 
     public DataModel saveData(DataModel dataModel){

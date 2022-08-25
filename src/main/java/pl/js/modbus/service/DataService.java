@@ -55,7 +55,7 @@ public class DataService {
             LiveDataModel currentLiveDataModel = liveDataRepository.findByModbusID("modbus1");
 
             liveDataModel.setId(currentLiveDataModel.getId());
-            liveDataModel.setRecordTime(LocalDateTime.now());
+            liveDataModel.setRecordTime(ZonedDateTime.now());
         }
         return liveDataRepository.save(liveDataModel);
     }
